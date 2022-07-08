@@ -21,10 +21,14 @@ class IndexController extends Controller
 		$setting = $this->setting;
 		$pageTitle = 'The Gospel Faith Mission International (GOFAMINT) - Wonders Cathedral, Magodo Assembly, Region 12 HQ, Magodo Lagos.';
 		$media = Media::where('status', 'published')->take(4)->get();
+		$pastors = Leadership::orderBy('rank', 'ASC')->get();
+		$values = isset($setting->core_values) ? json_decode($setting->core_values, true) : [];
 
 		return view('pages.home')
 			->with('pageTitle', $pageTitle)
 			->with('medias', $media)
+			->with( 'pastors', $pastors)
+			->with('values', $values)
 			->with('setting', $setting);
    	}
 

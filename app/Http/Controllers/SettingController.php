@@ -59,8 +59,9 @@ class SettingController extends Controller
     public function edit(Setting $setting)
     {
         $setting = $this->setting;
+        $values = isset($setting->core_values) ? json_decode($setting->core_values, true) : [];
        
-   	   	return view('backend.settings_update', compact('setting'));
+   	   	return view('backend.settings_update', compact('setting', 'values'));
     }
 
     /**
@@ -73,7 +74,7 @@ class SettingController extends Controller
     public function update(Request $request)
     {
         $setting = Setting::first();
-       
+        
         if($request->has('image')){
             $request['rp_image'] = $this->uploadImage($request->image, 'images');
         }
@@ -118,5 +119,34 @@ class SettingController extends Controller
         $user->update($request->all());
 
         return redirect(route('updateprofile'))->with('message', 'Update Successful');
+    }
+
+    public function addVal(Request $request){
+        $setting = Setting::first();
+        $values = $setting->core_values;
+      
+        if(!is_null($values)){
+            $values = json_decode($values, true);
+
+            $new = [
+                    'title' => $request->title,
+                    'icon' => $request->icon,
+                    'content' => $request->content,
+                ];
+           
+            array_push($values, $new);
+        }else{
+            $values[] = [
+                'title' => $request->title,
+                'icon' => $request->icon,
+                'content' => $request->content,
+            ];
+        }
+       
+        $setting->core_values = json_encode($values);
+        // dd($values);
+        $setting->save();
+       
+        return back()->with('message', 'Operation successful!');
     }
 }

@@ -50,9 +50,9 @@
                         </figure>
                         <div class="blog-content">
                             @if($media->isFree == 'yes')
-                            <a href="{{ route('media.view', $media->slug) }}">{{\Illuminate\Support\Str::limit($media->title , 85), '...'}}</a>
+                            <a href="{{ route('media.view', $media->slug) }}">{{\Illuminate\Support\Str::limit($media->title , 75), '...'}}</a>
                             @else
-                            <a href="#">{{\Illuminate\Support\Str::limit($media->title , 85), '...'}}</a>
+                            <a href="#">{{\Illuminate\Support\Str::limit($media->title , 75), '...'}}</a>
                             @endif
                         </div>
                         @if($media->isFree == 'yes')

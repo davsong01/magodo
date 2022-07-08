@@ -35,7 +35,9 @@ audio, canvas, progress, video {
   transition: all 0.3s ease;
   line-height: 1.4 !important;
 }
-
+.nobox-shadow {
+  box-shadow: unset !important
+}
 </style>
     
 @endsection
@@ -53,13 +55,13 @@ audio, canvas, progress, video {
                 <div class="col-md-12">
                     @include('includes.alerts')
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="business-title-left">
                       <h2>Donate</h2>
                       <span class="title-border-left"></span>
                       <p>You can make donations here, please fill the form below to continue</p>
                     </div>
-                    <div class="single-bolg hover01">
+                    <div class="">
                         <form action="{{ route('donate.cart') }}" method="post">
                             {{ csrf_field() }}
                             <div class="col-md-12 form-div">                        
@@ -94,7 +96,7 @@ audio, canvas, progress, video {
                         </form>
                     </div>
                 </div>  
-                <div class="col-md-3">
+                <div class="col-md-2">
                     @if(isset($related) && $related->count() > 0)
                     <div class="col-md-12">
                         <div class="business-title-left">

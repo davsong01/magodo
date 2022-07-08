@@ -44,7 +44,6 @@ class MediaController extends Controller
 				$request->filex->move(base_path('uploads'), $imageName);
 				$request['file'] = $imageName;
 			}
-			
 		}
 	
 		if($request->has('image')){
@@ -54,7 +53,7 @@ class MediaController extends Controller
 		$request['slug'] = Str::slug($request->title);
 		$request['uploaded_by'] = auth()->user()->name;
 
-        Media::create($request->all());
+        Media::create($request->except(['_token', '_method', 'image']));
 
 		return redirect()->route('media.index')->with('message', 'Media successfully added');
     }
@@ -105,17 +104,8 @@ class MediaController extends Controller
 		$request['slug'] = Str::slug($request->title);
 		$request['isFree'] = $request->isFree ?? $media->isFree;
 		// dd($request->all());
-        $media->update($request->except(['_token', '_method']));
-		// [
-		// 	'title' => $request->title,
-		// 	'slug' => $request['slug'],
-		// 	'featured_image' => $request['featured_image'],
-		// 	'isFree' => $request->isFree,
-		// 	'status' => $request->status,
-		// 	'price' => $request->price,
-		// 	'file' => $request->file,
-		// 	'youtube'
-		// ]);
+        $media->update($request->except(['_token', '_method', 'image']));
+
 		return back()->with('message', 'Update successful');
     }
 

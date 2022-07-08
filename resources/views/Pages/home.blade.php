@@ -1,6 +1,9 @@
 @extends('Layouts.app')
 @section('topCss')
     <style>
+        .padding-top-large{
+            padding-top: 20px !important;
+        }
         .single-services{
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
             max-height: 250px;
@@ -21,7 +24,181 @@
         .blog-content a {
             margin-top: 5px !important;
         }
-        
+        .section .section-divider {
+            display: block;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            margin-left: -25px;
+            background-color: inherit;
+            z-index: 1;
+        }
+        .section-divider.triangle.up, .section-divider.triangle.down {
+            -moz-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        .section-divider.triangle.down {
+        bottom: -25px;
+        }
+        .serviceBox{
+            color: #555;
+            text-align: center;
+            padding: 0 25px 20px;
+            margin: 0 -5px;
+            position: relative;
+            z-index: 1;
+            margin-bottom:30px
+        }
+        .serviceBox:before,
+        .serviceBox:after{
+            content: '';
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 20px -5px rgba(0,0,0,0.4);
+            position: absolute;
+            left: 15px;
+            top: 0;
+            right: 15px;
+            bottom: 10px;
+            z-index: -1;
+        }
+        .serviceBox:after{
+            background-color: transparent;
+            border: 2px solid #F84745;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            box-shadow: none;
+            left: 0;
+            top: 30%;
+            right: 0;
+            bottom: 0;
+        }
+        .serviceBox .service-icon{
+            color: #fff;
+            background: #F84745;
+            font-size: 30px;
+            padding: 5px 40px;
+            margin: 0 0 25px;
+            border-radius: 0 0 20px 20px;
+            display: inline-block;
+        } 
+        .serviceBox .title{
+            color: #F84745;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0 0 15px;
+        }
+        .serviceBox .description{
+            font-size: 16px;
+            line-height: 25px;
+            margin: 0 10px;
+            height: 200px;
+        }
+        .serviceBox.blue .service-icon{ background: #e54950; }
+        .serviceBox.blue:after{ border-color: #e54950; }
+        .serviceBox.blue .title{ color: #e54950; }
+
+        .red{
+            color: #f84745
+        }
+
+        @media only screen and (max-width: 990px){
+            .serviceBox{ margin: 0 0 40px; }
+        }
+        .medium-space{
+            padding:30px 0;
+        }
+        .white::after {
+            border: 1px solid white !important;
+        }
+        .our-team{
+        text-align: center;
+        }
+        .pic{
+            position: relative;
+            overflow: hidden;
+        }
+        .pic img{
+            width: 100%;
+            height: auto;
+        }
+        .pastors{
+            height: 200px !important;
+            width: 200px !important
+        }
+        .social_media_team {
+            position: absolute;
+            top: 100%;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(222, 79, 0, 0.8);
+            transition: all 0.35s ease 0s;
+            left: 11%;
+        }
+        .team_social{
+            list-style: none;
+            padding: 0;
+            height: 100%;
+            position: relative;
+            top:40%;
+        }
+        .team_social > li{
+            display: inline-block;
+            margin: 0 5px 5px 0;
+        }
+        .team_social > li > a{
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border: 1px solid #fff;
+            display: block;
+            color:#fff;
+            font-size: 18px;
+            transition: all 1.3s ease 0s;
+        }
+        .team_social > li > a:hover{
+            background: #fff;
+            color:#de4f00;
+            transition: all 1.3s ease 0s;
+        }
+        .team-prof{
+            margin-top: 0px;
+        }
+        .post-title > a{
+            text-transform: capitalize;
+            color:white !important;
+            transition: all 0.2s ease 0s;
+            font-size:16px;
+            margin-bottom: 0;
+            font-weight: 200;
+        }
+        .post-title > a:hover{
+            text-decoration: none;
+            color: white;
+        }
+        .post{
+            color:#de4f00;
+            font-size: 18px;
+            font-size:16px;
+            font-weight: lighter;
+        }
+        .pic:hover .social_media_team{
+            top:0;
+        }
+        @media screen and (max-width: 990px){
+            .our-team{
+                margin-bottom: 30px;
+            }
+        }
+        .small-blocks {
+            height: 174px;
+        }
     </style>
 @endsection
 @section('pageTitle', $pageTitle)
@@ -43,120 +220,68 @@
             @endforeach            
         </div>  
     </div>
-        
-    <div class="team-members-1x">  
-        <div style="padding: 10px 0;margin-bottom: 10px; background: url({{ asset('images/about-background.jpg') }}); background-size: cover;
-    background-repeat: no-repeat;background-attachment: none;background-position: center;padding-top: 0;margin-bottom: 0">
-            <div class="container">
-                <div class="team-members-content" style="padding-top: 30px">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="business-title-left">
-                                <h2>{{ $setting->rp }}</h2>
-                                <h6 style="color: #ef454d;">Senior Pastor, GOFAMINT Wonders Cathedral</h6>
-                            </div>
-                            <div class="team-members-left">
-                                {!! $setting->rp_greetings !!}
-                            {{-- <hr />                      --}}
-                            </div>
-                        </div>
-                    
-                        <div class="col-md-4">
-                            <div class="row">                   
-                                <div class="col-md-12">
-                                    <div style="float:left; position:relative; padding-right: 40px; text-align:center"  >
-                                    <img style="width:300px" class="rp" src="{{asset($setting->rp_image)}}"> <h2 style="font-size:20px; padding-top:15px; "></h2>
-                                    {{-- <span style="font-size:15px;padding-top:15px">Senior Pastor</span> </div> --}}
-                            </div>
-                                        
-                            </div>      
-                        </div>      
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="business-services-1x" style="background: #0d40720a;padding: 30px 0;">  
+    
+    <div class="business-services-1x" style="background: white;padding: 30px 0;">  
         <div class="container">
             <div class="business-services">                         
                 <div class="row">               
-                    <div class="col-md-12">
-                        <div class="business-title-middle" style="padding-bottom:15px">
-                            <h2>Core Values</h2>
-                            <span class="title-border-middle"></span>
-                        </div>
-                    </div>
-                    
                     <div class="col-md-12 service-content" style="margin-top:0">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="single-services">
-                                    <div class="media">                             
-                                      <img class="mr-3" src="{{asset('images/icon/icon-1.png')}}" alt="Generic placeholder image">
-                                      <div class="media-body">
-                                          <a>Our Faith Declaration</a>
-                                          <p>{{ $setting->faith_declaration }}</p>
-                                      </div>
-                                    </div>  
-                                </div>  
+                                <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="http://www.rccggoshen.org/wp-content/uploads/2020/06/welcome1-1.jpg" alt="" width="600" height="388">
+                                    </div>
+                                    <div class="desc_wrapper"></div>
+                                    <div class="desc">
+                                        <p></p>
+                                        <h4 class="red">Welcome to Our Church</h4><p></p>
+                                        <div class="small-blocks">
+                                            {!! $setting->welcome !!}
+                                        </div>
+                                       
+                                        <p>
+                                            <a  href="/about">
+                                            <button class="read-more">Read more</button>
+                                        </a>
+                                        </p>
+                                    </div>
+                                </div> 
                             </div>
                             <div class="col-md-4">
-                                <div class="single-services">
-                                    <div class="media">
-                                      <img class="mr-3" src="{{asset('images/icon/icon-2.png')}}" alt="Generic placeholder image">
-                                      <div class="media-body">
-                                        <a href="">Aim</a>
-                                        <p>For with God nothing will be impossible.</p><a href="" class="btn btn-light" style="font-size:10px;">Read more</a>
-                                      </div>
-                                    </div>  
-                                </div>  
+                                <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="http://www.rccggoshen.org/wp-content/uploads/2020/06/about.jpg" alt="" width="600" height="388">
+                                    </div>
+                                    <div class="desc_wrapper"></div>
+                                    <div class="desc">
+                                        <p></p>
+                                        <h4 class="red">About us</h4><p></p>
+                                        <div class="small-blocks">
+                                            {!! $setting->about_us !!}
+                                        </div>
+                                        <p>
+                                            <a  href="/about">
+                                            <button class="read-more">Read more</button>
+                                        </a>
+                                        </p>
+                                    </div>
+                                </div> 
                             </div>
                             <div class="col-md-4">
-                                <div class="single-services">
-                                    <div class="media">
-                                      <img class="mr-3" src="{{asset('images/icon/icon-3.png')}}" alt="Generic placeholder image">
-                                      <div class="media-body">
-                                        <a href="">Our Statement of Purpose</a>
-                                        <p>To Preach the Word of God and bring people into the membership of God&rsquo;s family;...</p>
-                                        <a href="" class="btn btn-light" style="font-size:10px;">Read more</a>
-                                      </div>
-                                    </div>  
-                                </div>  
-                            </div>      
-                            <div class="col-md-4">
-                                <div class="single-services">
-                                    <div class="media">
-                                      <img class="mr-3" src="" alt="Generic placeholder image">
-                                      <div class="media-body">
-                                        <a href="#">Our Core Values</a>
-                                        <p>The Gospel Faith Mission International is an organisation, which aims at preaching  and teaching the gospel of our Lord Jesus Christ.  </p>
-                                        <a href="#" class="btn btn-light" style="font-size:10px;">Read more</a>
-                                      </div>
-                                    </div>  
-                                </div>  
-                            </div>
-                            <div class="col-md-4">
-                                <div class="single-services">
-                                    <div class="media">
-                                      <img class="mr-3" src="" alt="Generic placeholder image">
-                                      <div class="media-body">
-                                        <a href="#">Membership Covenant</a>
-                                        <p>Having accepted Jesus Christ into my life as my personal Lord and Saviour, upon  which I have been baptized by immersion ...</p><a href="#" class="btn btn-light" style="font-size:10px;">Read more</a>
-                                      </div>
-                                    </div>  
-                                </div>  
-                            </div>
-                            <div class="col-md-4">
-                                <div class="single-services">
-                                    <div class="media">
-                                      <img class="mr-3" src="{{asset('images/icon/icon-6.png')}}" alt="Generic placeholder image">
-                                      <div class="media-body">
-                                          <a href="#">Our Beliefs</a>
-                                        <p>We preach Christ the only hope of the world</p><a href="#" class="btn btn-light" style="font-size:10px;">Read more</a>
-                                      </div>
-                                    </div>  
-                                </div>  
+                                <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="http://www.rccggoshen.org/wp-content/uploads/2020/06/img1.jpg" alt="" width="600" height="388">
+                                    </div>
+                                    <div class="desc_wrapper"></div>
+                                    <div class="desc">
+                                        <p></p>
+                                        <h4 class="red">Why you should Join us</h4><p></p>
+                                        <div class="small-blocks">{!! $setting->why_join_us !!}</div>
+                                        <p>
+                                            <a  href="/">
+                                            <button class="read-more">Read more</button>
+                                        </a>
+                                        </p>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                         
@@ -164,138 +289,81 @@
                 </div>
             </div>
         </div>
-    </div>      
-       
-    <div class="business-features-3x">  
-        <div class="colourful-features-content" style="padding-top: 35px;">
-        <div class="business-title-middle">
-            <h2>Our Meeting Times</h2>
-            <span class="title-border-middle"></span>
-        </div>              
-            <div class="row">                   
-                <div class="col-md-3 no-padding">               
-                    <div class="single-colorful-feature feature-color-1">
-                        <h3>Tuesday:</h3>
-                        <h2>Bible Studies</h2>
-                        <p>Search the Scripture - 6:30pm</p>   
-                    </div>                                  
-                </div>                  
-                <div class="col-md-3 no-padding">               
-                    <div class="single-colorful-feature feature-color-2">
-                        <h3>Thursday:</h3>
-                        <h2>Prayer</h2>
-                        <p>Sweet hour of prayer - 6pm</p>   
-                    </div>                                  
-                </div>                  
-                <div class="col-md-3 no-padding">               
-                    <div class="single-colorful-feature feature-color-3">
-                        <h3>Sunday:</h3>
-                        <h2></h2>
-                        <p>Workers' Refrehing Hour - 7am<br />
-                        Sunday School - 8am<br />
-                        Rhema Service - 9am<br /></p>   
-                    </div>                                  
-                </div>                  
-                <div class="col-md-3 no-padding">               
-                    <div class="single-colorful-feature feature-color-4">
-                        <h3>Last Friday of the Month:</h3>
-                        <h2>General Vigil</h2>
-                        <p>11pm prompt</p>   
-                    </div>                                  
-                </div>
-                
-            </div>      
-        </div>
-    </div>
-      
+    </div>  
+    <div class="padding-top-large"></div>
     
-    {{-- <div class="business-testimonial-slider-1x">    
-        <div class="container">
-        <div class="business-title-left">
-                            <h2>Testimonies</h2>
-                            <span class="title-border-left"></span>
-                        </div>
-            <div class="row">
-                                
-                <div class="col-md-12">
-                    <div class="testimonial-slider-content">
-                        <div class="owl-carousel testimonial-slider">
-                            <div class="item">
-                              <img src="{{asset('images/member/team5.jpg')}}" alt="slide 1" class="">
-                              <p>"It happened in a blur. One minute we were enjoying a night out, shooting pool. The next thing I knew, we were running from the law—wanted for murder."</p><a href="#" class="btn btn-light" style="font-size:10px; float:right">Read more</a>
-                              <h2>Sis. Goodluck</h2>
-                              
-                            </div>  
-                            <div class="item">
-                              <img src="{{asset('images/member/team6.jpg')}}" alt="slide 1" class="">
-                              <p>"I grew up in Iraq as the third oldest of eight siblings. My family was untraditional. My mom was Muslim, and my dad was Catholic. They didn’t force any religion on their children, in part because they didn’t take religion very seriously themselves." </p><a href="#" class="btn btn-light" style="font-size:10px; float:right">Read more</a>
-                               <h2>Bro. Abbas Hameed</h2>
-                             
-                            </div>  
-                                               
-                        </div>  <p align="right" style="margin-top:10px;"><a href="#" class="btn btn-danger" style="font-size:10px; position:relative; margin-right:5px; color:#FFF !important">Prev</a><a href="#" class="btn btn-danger" style="font-size:10px; position:relative; color:#FFF !important">Next</a></p>
-                    </div>                                  
-                </div>      
-            </div>      
-        </div>
-    </div> 
-       --}}
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
+    <div class="business-services-1x" style="background: #033d75;padding: 30px 0;"> 
+    <div class="padding-top-large"></div>
 
-    <!-- Prayer request starts -->
-    {{-- <div class="business-call-back-1x"> 
-        <div class="business-call-back-content">    
-            <div class="container">
-            <form>
-                <div class="row">                   
-                    <div class="col-md-4">              
-                        <div class="call-back-left">
-                          <div class="business-title-left">
-                                <h2>Prayer Request</h2>
-                                <span class="title-border-left"></span>
-                            </div>                      
-                            <textarea cols="" rows="3" class="form-control" id="exampleFormControlInput1" placeholder="Prayer Request"></textarea>                                          
-                        </div>                                  
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 busines-portfolio-light">
+                    <div class="business-title-middle">
+                        <h2 style="color:white">Our Core Values</h2>
+                        <span class="title-border-middle white"></span>
+                    </div>  
+                </div>
+                @foreach($values as $value)
+                <div class="col-md-3 col-sm-6">
+                    <div class="serviceBox blue">
+                        <div class="service-icon">
+                            <span><i class="{{ $value['icon'] }}"></i></span>
+                        </div>
+                        <h3 class="title">{{ $value['title'] }}</h3>
+                        <p class="description">{{ $value['content'] }}</p>
                     </div>
-                    <div class="col-md-8">              
-                        <div class="call-back-right">
-                            <h2>We would like to have your details</h2>
-                            
-                                <div class="row">                                                           
-                                    <div class="col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Name" required>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <div class="form-group">
-                                        <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="Email" required>
-                                      </div>
-                                    </div>
-                                                            
-                                    <div class="col-md-6">
-                                      <div class="form-group">
-                                        <input type="number" class="form-control" id="exampleFormControlInput4" placeholder="Phone Number" required>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a href="#" class="bussiness-btn-larg">Submit</a>
-                                    </div>
-                                </div>                                      
-                            </form>                                         
-                        </div>      
-                    </div>
-                    
-                </div>      
+                </div>
+                @endforeach
+               
+            </div>
+            <div class="row medium-space">
+
             </div>
         </div>
     </div>
-
-    <div class="padding-top-large"></div> --}}
-   <!-- Prayer request ends -->
-   
-   <!-- messaes starts -->   
-    
+    {{-- Our leaders --}}
+    <div class="business-services-1x" style="background: black;padding: 30px 0;">  
+    <div class="padding-top-large" style="background: black;padding: 30px 0;"></div>
+        <div class="container">
+            <div class="business-services">                     
+                <div class="row">     
+                    <div class="col-md-12 busines-portfolio-light">
+                        <div class="business-title-middle">
+                            <h2 style="color:white">Meet Our Pastors</h2>
+                            <span class="title-border-middle white"></span>
+                        </div>  
+                    </div>          
+                    <div class="col-md-12 service-content" style="margin-top:0">
+                        <div class="row">
+                            @foreach($pastors as $pastor)
+                            <div class="col-md-3">
+                                <div class="our-team">
+                                    <div class="pic">
+                                        <img class="pastors" src="{{ asset($pastor->image) }}" alt="">
+                                        <div class="social_media_team">
+                                            <ul class="team_social">
+                                            
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="team-prof">
+                                        <h3 class="post-title"><a href="#">{{ $pastor->name }}</a></h3>
+                                        <span class="post">{{ $pastor->position }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Latest media --}}
     <div class="business-blog-1x" style="padding-top:35px">  
+    <div class="padding-top-large"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -316,9 +384,9 @@
                         </figure>
                         <div class="blog-content">
                             @if($media->isFree == 'yes')
-                            <a href="{{ route('media.view', $media->id) }}">{{\Illuminate\Support\Str::limit($media->title , 85), '...'}}</a>
+                            <a href="{{ route('media.view', $media->id) }}">{{\Illuminate\Support\Str::limit($media->title , 75), '...'}}</a>
                             @else
-                            <a href="#">{{\Illuminate\Support\Str::limit($media->title , 85), '...'}}</a>
+                            <a href="#">{{\Illuminate\Support\Str::limit($media->title , 75), '...'}}</a>
                             @endif
                         </div>
                         @if($media->isFree == 'yes')
@@ -329,19 +397,51 @@
                     </div>
                 </div>  
                 @endforeach 
-                <div class="col-md-12">
-                    <a href="{{ route('media.gallery') }}" class="btn btn-info" style="font-size:12px; padding: 12px;color:white;width: 100%;">Go to media gallery</a>
+                <div class="col-md-12" style="display: flex;">
+                    <a href="{{ route('media.gallery') }}" class="btn btn-info" style="font-size:12px; padding: 12px;color:white;width: 20%;margin:auto">Go to media gallery</a>
                 </div>    
         </div>
     </div>
-    
-    <div class="padding-top-large"></div>
-    <!-- Messages end -->
-    <div class="client_map">
-        <div class="row">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700.6106515449229!2d3.3715581!3d6.615539300000046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93ae7d0a8e23%3A0xcfd248703aba8dfb!2sThe+Gospel+Faith+Mission+Int&#39;l!5e0!3m2!1sen!2sng!4v1524518041785" height="400" frameborder="0" style="border:0; width:100%; padding-right:0px !important; margin-right:0px !important" allowfullscreen></iframe>
+    {{-- Our leaders --}}
+    <div class="padding-top-large" style="padding: 30px 0;"></div>
+
+    <div class="business-services-1x" style="background: black;padding: 30px 0;">  
+    <div class="padding-top-large" style="background: black;padding: 30px 0;"></div>
+        <div class="container">
+            <div class="business-services">                     
+                <div class="row">     
+                    <div class="col-md-12 busines-portfolio-light">
+                        <div class="business-title-middle">
+                            <h2 style="color:white">Our Meeting Times</h2>
+                            <span class="title-border-middle white"></span>
+                        </div>  
+                    </div>          
+                    <div class="col-md-12 service-content" style="margin-top:0">
+                        <div class="row">
+                            <div class="col-md-4" style="margin: 0 0 20px 0;">
+                                <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="{{ asset('images/service1.png') }}" alt="" width="600" height="388">
+                                    </div>                                    
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="{{ asset('images/service2.png') }}" alt="" width="600" height="388">
+                                    </div>                                    
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="{{ asset('images/service3.png') }}" alt="" width="600" height="388">
+                                    </div>                                    
+                                </div> 
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- End content -->
 @endsection
 

@@ -62,6 +62,8 @@ Route::middleware(['auth', 'admin'])->group (function() {
     Route::resource('users', 'UserController');
     Route::resource('slider', 'SliderController');
     Route::get('setting', 'SettingController@edit')->name('setting.edit');
+    Route::post('add-core-value', 'SettingController@addVal')->name('add-core-value');
+    
     Route::patch('updateseeting', 'SettingController@update')->name('updateseeting');
     Route::get('single/{id}', 'IndexController@singleDistrict')->name('district.single');
     Route::get('download-paid2/{id}', 'MediaController@paidMedia2')->name('media.paid2');

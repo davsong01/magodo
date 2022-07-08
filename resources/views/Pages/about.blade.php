@@ -30,15 +30,30 @@
           </div>
         </div>
     </div>
+    
     <div class="container">
         <div class="row">
           <div class="col-md-12">
               <div class="business-title-left">
-                  <h2>Our Core Values</h2>
+                  <h2>The Ministries</h2>
                   <span class="title-border-left"></span>
               </div>
               <div class="entry-content">
-                  {!! $setting->core_values !!}
+                  {!! $setting->ministries !!}
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+              <div class="business-title-left">
+                  <h2>Our Days of Service</h2>
+                  <span class="title-border-left"></span>
+              </div>
+              <div class="entry-content">
+                  {!! $setting->days_of_service !!}
               </div>
             </div>
           </div>

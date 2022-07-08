@@ -36,6 +36,7 @@
     <link href="{{asset('assets/css/fakeLoader.css')}}" rel="stylesheet">
     <!-- Main CSS -->
     <link href="{{asset('assets/style.css')}}" rel="stylesheet">
+    {{-- <link href="{{asset('assets/animate.css')}}" rel="stylesheet"> --}}
 
     <!-- Responsive CSS -->
     <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
@@ -145,17 +146,17 @@
                                 </li>
                                 <li class="nav-item dropdown {{ Request::is('livestream', 'livestream/youtube', 'livestream/mixlr') ? 'active' : ''  }}">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       Livestream
+                                       Live
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                                         @if(!is_null(\App\Setting::value('mixlr_livestream_link')))
-                                        <li><a target="_blank" class="dropdown-item" href="{{ \App\Setting::value('mixlr_livestream_link') }}">Mixlr</a></li>
+                                        <li><a target="_blank" class="dropdown-item" href="{{ \App\Setting::value('mixlr_livestream_link') }}">Radio</a></li>
                                         @endif
                                         @if(!is_null(\App\Setting::value('youtube_livestream_link')))
-                                        <li><a class="dropdown-item" href="{{route('livestream.youtube')}}">Youtube</a></li>  
+                                        <li><a class="dropdown-item" href="{{route('livestream.youtube')}}">Youtube TV</a></li>  
                                         @endif  
                                          @if(!is_null(\App\Setting::value('facebook_livestream_link')))
-                                        <li><a class="dropdown-item" href="{{route('livestream.facebook')}}">Facebook</a></li>  
+                                        <li><a class="dropdown-item" href="{{route('livestream.facebook')}}">Facebook TV</a></li>  
                                         @endif  
                                         
                                     </ul>
@@ -178,15 +179,6 @@
                                  
                             </ul>
                             
-                          {{-- <div class="business-cart">
-                            <div class="box">
-                              <div class="container-2">
-                                  <span class="icon"><i class="fa fa-search"></i></span>
-                                  <input type="search" id="search" placeholder="Search..." />
-                              </div>
-                            </div>
-                          </div> --}}
-                            
                           </div>
                         </nav>
                         {{-- Navbar end --}}
@@ -199,41 +191,9 @@
 
 @yield('businessBanner')
 
-@yield('content')
-
-
- <!-- Clients start -->    
-    {{-- <div class="clients-slider-1x"> 
-        <div class="container">
-            <div class="row">                   
-                <div class="col-md-12">
-                    <div class="clients-logo-slider">
-                        <div class="owl-carousel clients-slider">
-                            <div class="item">
-                              <a href="#"><img src="{{asset('images/client/1.jpg')}}" alt="slide 1" class=""></a>                                                                              
-                            </div> 
-                            <div class="item">
-                              <a href="#"><img src="{{asset('images/client/2.png')}}" alt="slide 1" class=""></a>    
-                            </div>
-                            <div class="item">
-                              <a href="#"><img src="{{asset('images/client/3.png')}}" alt="slide 1" class=""></a>    
-                            </div> 
-                            <div class="item">
-                              <a href="#"><img src="{{asset('images/client/4.jpg')}}" alt="slide 1" class=""></a>    
-                            </div> 
-                            <div class="item">
-                              <a href="#"><img src="{{asset('images/client/5.jpg')}}" alt="slide 1" class=""></a>
-                            </div>            
-                        </div>  
-                    </div>                                  
-                </div>      
-            </div>      
-        </div>
-    </div> --}}
- <!-- clients end -->   
+@yield('content')  
     <!-- Start Footer -->
 	<footer class="bussiness-footer-1x">		
-		
 		  <div class="bussiness-footer-content ">
 				<div class="container">
 					<div class="row">
@@ -246,27 +206,15 @@
 									<p> <i class="fa fa-map-marker"></i> 20, Adekunle Banjo Street, <br />Magodo GRA, Shangisha, Lagos</p>											
 							</div>
 						</div>
-						{{-- <div class="col-md-3">
-							<h5> Useful Links </h5>
-							<ul>
-								<li><a href="#"> GOFAMINT Global </a></li>				
-								<li><a href="#"> Daily Devotion </a></li>				
-								<li><a href="#"> House of Hope, USA </a></li>				
-								<li><a href="#"> House of Change, USA  </a></li>				
-								<li><a href="#"> GOFAMINT Canada </a></li>	
-							</ul>
-						</div>							 --}}
 						<div class="col-md-4">	
-							<h5> Other Menu </h5>
+							<h5>Useful links</h5>
 							<ul>
-								<li><a href="#"> Members Login </a></li>													
-								<li><a href="#"> Wonders Sunday Highlights </a></li>				
-								<li><a href="#"> Departments  </a></li>	
-                                <li><a href="#"> Testimonies </a></li>			
-								<li><a href="https://gofamintmagodo.org.ng:2096/">Webmail </a></li>				
+								<li><a href="#"> About Us</a></li>													
+								<li><a href="{{ route('districts') }}"> Our Districts </a></li>				
+								<li><a href="{{ route('assemblies') }}"> Our Assemblies  </a></li>	
+                                <li><a href="{{ route('login') }}"> Login </a></li>			
 							</ul>			
 						</div>
-
 						<div class="col-md-4">	
 							<h5> Subscribe </h5>								
 							<div class="subscriber-form">
