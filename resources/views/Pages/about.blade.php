@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('layouts.app')
 @section('topCss')
 <style>
   .form-div{
@@ -11,7 +11,7 @@
 @section('pageTitle', $pageTitle)
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @stop
 @section('content')
 <div class="bussiness-our-address" style="margin-top:30px">

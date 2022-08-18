@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('layouts.app')
 @section('topCss')
 <style>
 .demo{ background: #e5e5e5; }
@@ -105,10 +105,9 @@
 @section('pageTitle', $pageTitle)
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @endsection
 @section('content')
-
 <div class="bussiness-our-address" style="background: #e7e7e7; padding:35px 0">
   <div class="container">
      <div class="row">

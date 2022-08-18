@@ -1,4 +1,4 @@
-@extends('Layouts.layout')
+@extends('layouts.layout')
 
 @section('pageTitle')
  Our History
@@ -9,7 +9,7 @@
 @endsection
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @stop
 
 @section('content')   

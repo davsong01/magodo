@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('layouts.app')
 @section('topCss')
    
 <style>
@@ -25,7 +25,7 @@
 @section('pageTitle', $pageTitle)
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @stop
 @section('content')
 <div class="padding-top-large"></div>

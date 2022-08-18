@@ -1,4 +1,4 @@
-@extends('Layouts.layout')
+@extends('layouts.layout')
 
 <?php $pageTitle = 'Our Beliefs'; //for business banner ?>
 @section('pageTitle')
@@ -12,7 +12,7 @@
 
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @stop
 
 @section('content')   

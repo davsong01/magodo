@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('layouts.app')
 @section('topCss')
 <style>
     .serviceBox{
@@ -89,7 +89,7 @@
 @section('pageTitle', $pageTitle)
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @endsection
 @section('content')
 

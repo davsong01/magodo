@@ -1,4 +1,4 @@
-@extends('Layouts.layout')
+@extends('layouts.layout')
 
 <?php $pageTitle = 'Members Login'; //for business banner ?>
 @section('pageTitle')
@@ -10,7 +10,7 @@
 @endsection
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @stop
 
 @section('content')   

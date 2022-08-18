@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('layouts.app')
 @section('topCss')
 <style>
 .form-div{
@@ -44,7 +44,7 @@ audio, canvas, progress, video {
 @section('pageTitle', $pageTitle)
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @stop
 @section('content')
 <div class="padding-top-small"></div>

@@ -12,7 +12,7 @@
 */
 
 Route::get('/test', function(){
-    dd(phpinfo());
+  
 });
 
 Route::get('/', 'IndexController@home')->name('index');

@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('layouts.app')
 
 @section('pageTitle', $page_title)
  Welcome Message
@@ -9,7 +9,7 @@
 @endsection
 
 @section('businessBanner')
-@include('PartialView.businessBanner')
+@include('partialview.businessbanner')
 @stop
 
 @section('content')   
