@@ -229,7 +229,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
-                                    <div class="photo_wrapper"><img class="scale-with-grid" src="http://www.rccggoshen.org/wp-content/uploads/2020/06/welcome1-1.jpg" alt="" width="600" height="388">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="{{ asset('images/front1.png') }}" alt="" width="600" height="388">
                                     </div>
                                     <div class="desc_wrapper"></div>
                                     <div class="desc">
@@ -249,7 +249,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
-                                    <div class="photo_wrapper"><img class="scale-with-grid" src="http://www.rccggoshen.org/wp-content/uploads/2020/06/about.jpg" alt="" width="600" height="388">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="{{ asset('images/front2.png') }}" alt="" width="600" height="388">
                                     </div>
                                     <div class="desc_wrapper"></div>
                                     <div class="desc">
@@ -268,7 +268,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="animate fadeInLeft" data-anim-type="fadeInLeft">
-                                    <div class="photo_wrapper"><img class="scale-with-grid" src="http://www.rccggoshen.org/wp-content/uploads/2020/06/img1.jpg" alt="" width="600" height="388">
+                                    <div class="photo_wrapper"><img class="scale-with-grid" src="{{ asset('images/front3.png') }}" alt="" width="600" height="388">
                                     </div>
                                     <div class="desc_wrapper"></div>
                                     <div class="desc">

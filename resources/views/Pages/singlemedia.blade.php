@@ -89,7 +89,7 @@ audio, canvas, progress, video {
                     </div>
                 </div>  
                 <div class="col-md-2">
-                    @include('Pages.related_media')
+                    @include('pages.related_media')
                 </div>
             </div> 
         </div>  
