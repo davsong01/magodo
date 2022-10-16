@@ -10,19 +10,7 @@ audio, canvas, progress, video {
     width: 100%;
     margin-top: 20px;
 }
-.iframe-container{
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; 
-  height: 0;
-}
-.iframe-container iframe{
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+
 .blog-content a {
   margin-top: 10px !important;
 }
@@ -36,6 +24,19 @@ audio, canvas, progress, video {
   line-height: 1.4 !important;
 }
 
+.iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+.iframe-container iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 </style>
     
 @endsection
@@ -59,9 +60,12 @@ audio, canvas, progress, video {
                         <span class="title-border-left"></span>
                     </div>
                     <div class="single-bolg hover01">
-                        
+                        {{-- {{ dd() }} --}}
                        @if($type == 'youtube')
-		                    <iframe width="920" height="520" src="https://www.youtube.com/embed/5GOYrpJWGpI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="iframe-container">
+                                {!! $setting->youtube_livestream_link !!}
+                            </div>
+		                    {{-- <iframe width="auto" height="520" src="{{ "https://www.youtube.com/watch?v=e4y1rBOLrEo" }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
                         @endif
                     </div>
                 </div>  

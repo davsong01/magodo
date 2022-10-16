@@ -139,7 +139,7 @@
                                         <input id="" name="number_of_leaders" value="{{ old('number_of_leaders') ?? $setting->number_of_leaders}}" type="number" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="youtube_livestream_link" class="control-label mb-1">Youtube Livestream link</label>
+                                        <label for="youtube_livestream_link" class="control-label mb-1">Youtube Livestream embed code</label>
                                         <input id="" name="youtube_livestream_link" value="{{ old('youtube_livestream_link') ?? $setting->youtube_livestream_link}}" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
@@ -147,7 +147,7 @@
                                         <input id="" name="mixlr_livestream_link" value="{{ old('mixlr_livestream_link') ?? $setting->mixlr_livestream_link}}" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="facebook_livestream_link" class="control-label mb-1">Mixlr Livestream link</label>
+                                        <label for="facebook_livestream_link" class="control-label mb-1">Facebook Livestream link</label>
                                         <input id="" name="facebook_livestream_link" value="{{ old('facebook_livestream_link') ?? $setting->facebook_livestream_link}}" type="text" class="form-control">
                                     </div>
                                 </div>

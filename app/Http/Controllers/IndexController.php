@@ -22,6 +22,7 @@ class IndexController extends Controller
 		$pageTitle = 'The Gospel Faith Mission International (GOFAMINT) - Wonders Cathedral, Magodo Assembly, Region 12 HQ, Magodo Lagos.';
 		$media = Media::where('status', 'published')->take(4)->get();
 		$pastors = Leadership::orderBy('rank', 'ASC')->get();
+		// dd($pastors);
 		$values = isset($setting->core_values) ? json_decode($setting->core_values, true) : [];
 
 		return view('pages.home')
@@ -149,7 +150,7 @@ class IndexController extends Controller
 
 	public function leadership(){
 		$setting = $this->setting;
-		$leaders = Leadership::orderBy('rank')->get();
+		$leaders = Leadership::RankAscending()->get();
 		
 		$pageTitle = 'Church Leadership';
 		

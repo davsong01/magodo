@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="form-group has-success">
                                     <label for="image" class="control-label mb-1">Rank</label>
-                                    <input class="form-control" disabled value="{{ $leader->rank }}" type="text">
+                                    <input class="form-control" value="{{ $leader->rank }}" name="rank" type="text">
                                 </div>
                                 
                                 <div>

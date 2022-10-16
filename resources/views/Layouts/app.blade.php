@@ -130,7 +130,7 @@
                                         About Us
                                     </a>
                                 </li>
-                                <li class="nav-item dropdown {{  Request::is('districts/view', 'assemblies/view', 'single/*') || Request::is('assemblies') ? 'active' : ''  }}">
+                                {{-- <li class="nav-item dropdown {{  Request::is('districts/view', 'assemblies/view', 'single/*') || Request::is('assemblies') ? 'active' : ''  }}">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Locations
                                     </a>
@@ -138,7 +138,7 @@
                                         <li><a class="dropdown-item" href="{{route('districts')}}">Districts</a></li>
                                         <li><a class="dropdown-item" href="{{route('assemblies')}}">Assemblies</a></li>                                
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item {{ Request::is('church-leadership') ? 'active' : ''  }}">
                                     <a class="nav-link" href="{{route('church-leadership')}}">
                                         Leadership
@@ -156,7 +156,7 @@
                                         <li><a class="dropdown-item" href="{{route('livestream.youtube')}}">Youtube TV</a></li>  
                                         @endif  
                                          @if(!is_null(\App\Setting::value('facebook_livestream_link')))
-                                        <li><a class="dropdown-item" href="{{route('livestream.facebook')}}">Facebook TV</a></li>  
+                                        <li><a class="dropdown-item" target="_blank" href="{{ \App\Setting::value('facebook_livestream_link') }}">Facebook TV</a></li>  
                                         @endif  
                                         
                                     </ul>

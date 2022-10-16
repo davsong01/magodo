@@ -169,6 +169,7 @@
         }
         .team-prof{
             margin-top: 0px;
+            margin-bottom: 20px;
         }
         .post-title > a{
             text-transform: capitalize;
@@ -190,6 +191,9 @@
         }
         .pic:hover .social_media_team{
             top:0;
+        }
+        .scale-with-grid {
+           min-height:210px;
         }
         @media screen and (max-width: 990px){
             .our-team{
@@ -304,7 +308,8 @@
                         <span class="title-border-middle white"></span>
                     </div>  
                 </div>
-                @foreach($values as $value)
+                @foreach($values as $key=>$value)
+               
                 <div class="col-md-3 col-sm-6">
                     <div class="serviceBox blue">
                         <div class="service-icon">
@@ -330,7 +335,7 @@
                 <div class="row">     
                     <div class="col-md-12 busines-portfolio-light">
                         <div class="business-title-middle">
-                            <h2 style="color:white">Meet Our Pastors</h2>
+                            <h2 style="color:white">Meet Our Ministers</h2>
                             <span class="title-border-middle white"></span>
                         </div>  
                     </div>          

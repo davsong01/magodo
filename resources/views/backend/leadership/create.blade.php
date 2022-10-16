@@ -32,7 +32,7 @@
                                         class="form-control" value="{{ old('avatar')}}" aria-invalid="false" required>
                                 </div>
                                 <div class="form-group has-success">
-                                    <label for="rank" class="control-label mb-1">Select rank (This will be used to place the leaders on the leadership page)</label>
+                                    <label for="rank" class="control-label mb-1">Select rank (This will be used to place the leaders on the leadership page, change the maximum number in settings page)</label>
                                     <select class="form-control" name="rank" id="rank" required>
                                         @foreach($range as $r=>$value)
                                         <option value="{{ $value }}" {{ old('rank') == $value ? 'selected' : '' }}>{{ $value }}</option>

@@ -10,7 +10,7 @@
     z-index: 1;
     position: relative;
     width: 300px;
-    height: 280px;
+    height: auto;
 }
 .our-team:before,
 .our-team:after{
@@ -97,8 +97,8 @@
 }
 
 .our-team img {
-  width: 100%;
-  height: 274px;
+  width: 400px;
+  height: auto;
 }
 </style>
 @endsection

@@ -15,6 +15,7 @@ class LeadershipController extends Controller
     public function index()
     {
         $leaders = Leadership::orderBy('rank', 'ASC')->get();
+       
    	   	return view('backend.leadership.index', compact('leaders'));
     }
 
@@ -105,7 +106,7 @@ class LeadershipController extends Controller
             $request['image'] = $avatar;
 
         }
-
+       
         $leadership->update($request->except(['avatar', '_token']));
 
         return back()->with('message', 'Update successful');
