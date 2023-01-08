@@ -209,10 +209,12 @@
 						<div class="col-md-4">	
 							<h5>Useful links</h5>
 							<ul>
-								<li><a href="#"> About Us</a></li>													
-								<li><a href="{{ route('districts') }}"> Our Districts </a></li>				
+								<li><a href="#"> About Us</a></li>		
+								<li><a href="{{ route('livestream.youtube') }}"> Live TV</a></li>				
+
+								{{-- <li><a href="{{ route('districts') }}"> Our Districts </a></li>				
 								<li><a href="{{ route('assemblies') }}"> Our Assemblies  </a></li>	
-                                <li><a href="{{ route('login') }}"> Login </a></li>			
+                                <li><a href="{{ route('login') }}"> Login </a></li>			 --}}
 							</ul>			
 						</div>
 						<div class="col-md-4">	

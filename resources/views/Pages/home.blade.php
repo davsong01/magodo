@@ -403,7 +403,7 @@
                 </div>  
                 @endforeach 
                 <div class="col-md-12" style="display: flex;">
-                    <a href="{{ route('media.gallery') }}" class="btn btn-info" style="font-size:12px; padding: 12px;color:white;width: 20%;margin:auto">Go to media gallery</a>
+                    <a href="{{ route('media.gallery') }}" class="btn btn-info" style="font-size:12px; padding: 12px;color:white;width: 80%;margin:auto">Go to media gallery</a>
                 </div>    
         </div>
     </div>
